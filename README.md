@@ -1,8 +1,8 @@
 # EC-IT143_W9.2_weekly-gasoline_um
 
 /*****************************************************************************************************************
-        NAME:    My Script Name
-        PURPOSE: My script purpose...
+        NAME:    EC-IT143_W9.2_weekly-gasoline_um
+        PURPOSE: To create question frpm dataset and answer it---
 
         MODIFICATION LOG:
         Ver      Date        Author        Description
@@ -92,8 +92,8 @@ CREATE TEMPORARY TABLE tmp_gasoline_yearly_avg (
 
 
 /*****************************************************************************************************************
-        NAME:    My Script Name
-        PURPOSE: My script purpose...
+        NAME:    EC-IT143_W9.2_weekly-gasoline_um
+        PURPOSE: To create question frpm dataset and answer it---
 
         MODIFICATION LOG:
         Ver      Date        Author        Description
@@ -170,8 +170,8 @@ CREATE TEMPORARY TABLE tmp_gasoline_yearly_avg (
    
    
 /*****************************************************************************************************************
-        NAME:    My Script Name
-        PURPOSE: My script purpose...
+        NAME:    EC-IT143_W9.2_weekly-gasoline_um
+        PURPOSE: To create question frpm dataset and answer it---
 
         MODIFICATION LOG:
         Ver      Date        Author        Description

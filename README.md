@@ -202,7 +202,7 @@ END
         INSERT INTO gasoline_production_stats_table
         SELECT * FROM gasoline_production_stats;
 
-        Step 7 - Turn the Ad Hoc SQL script in a Stored Procedure
+ --- Turn the Ad Hoc SQL script in a Stored Procedure
 
         CREATE PROCEDURE get_gasoline_production_stats()
         BEGIN
@@ -243,14 +243,12 @@ END
         FROM weekly_gasoline
         WHERE Difference_From_Same_Week_Last_Year = (SELECT MAX(Difference_From_Same_Week_Last_Year) FROM weekly_gasoline);
 
-
 ---Turn the Ad Hoc SQL query into a View
 
         CREATE VIEW largest_production_diff_week_view AS
         SELECT Fiscal_Year, Fiscal_Week, Difference_From_Same_Week_Last_Year
         FROM weekly_gasoline
         WHERE Difference_From_Same_Week_Last_Year = (SELECT MAX(Difference_From_Same_Week_Last_Year) FROM weekly_gasoline);
-
 
 --- Turn the View into a Table
 
@@ -261,17 +259,20 @@ END
          Difference_From_Same_Week_Last_Year FLOAT NOT NULL
 );
 
-
 --- Load the Table from the View
 
-       CREATE PROCEDURE load_largest_production_diff_week()
+        INSERT INTO largest_production_diff_week_table (Fiscal_Year, Fiscal_Week, Difference_From_Same_Week_Last_Year)
+        SELECT Fiscal_Year, Fiscal_Week, Difference_From_Same_Week_Last_Year
+        FROM largest_production_diff_week_view;
+
+---Turn the Ad Hoc SQL script in a Stored Procedure
+
+      CREATE PROCEDURE load_largest_production_diff_week()
 BEGIN
         INSERT INTO largest_production_diff_week_table (Fiscal_Year, Fiscal_Week, Difference_From_Same_Week_Last_Year)
         SELECT Fiscal_Year, Fiscal_Week, Difference_From_Same_Week_Last_Year
-         FROM largest_production_diff_week_view;
+        FROM largest_production_diff_week_view;
 END;
-
-
 
 --- Call the Stored Procedure
 
